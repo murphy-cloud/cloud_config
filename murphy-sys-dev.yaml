@@ -20,3 +20,17 @@ pagehelper:
   reasonable: true
   support-methods-arguments: true
   params: count=countSql
+  
+#============分布式事务===============
+tm:
+  manager:
+    url: http://localhost:10002/tx/manager/
+tx-manager:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+    MaxAutoRetriesNextServer: 0
+ribbon:
+  eureka:
+    enabled: true
+  readTimeout: 6000
+  ConnectTimeout: 6000
