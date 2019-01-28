@@ -4,10 +4,11 @@ spring:
   application:
     name: MurphySys
   datasource:
+    jdbc-url: jdbc:mysql://localhost:3306/murphy?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.jdbc.Driver
     hikari:
-      jdbc-url: jdbc:mysql://localhost:3306/murphy?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+#      jdbc-url: jdbc:mysql://localhost:3306/murphy?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
       maximum-pool-size: 100
     username: root
     password: 666666
