@@ -1,52 +1,46 @@
-server:
-  port: 12001
 spring:
   application:
-    name: MurphySys
+    name: murphy-sys
   datasource:
-    jdbc-url: jdbc:mysql://localhost:3306/murphy?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.jdbc.Driver
     hikari:
 #      jdbc-url: jdbc:mysql://localhost:3306/murphy?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
-      maximum-pool-size: 100
+      maximum-pool-size: 20
+    url: jdbc:mysql://localhost:3306/murphy?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
     username: root
     password: 666666
+server:
+  port: 11000
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10000/eureka/
+
 #============MyBatis配置==============================
 mybatis:
-  mapper-locations: classpath:mapping/*.xml
-  type-aliases-package: com.murphy.sys.entity
-
-
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.gee.murphy.sys.entity
 #============分页插件=======================
 pagehelper:
   helperDialect: mysql
-  reasonable: true
   support-methods-arguments: true
   params: count=countSql
-
+  reasonable: true
 #============关闭Ribbon重试机制===============
 ribbon:
   MaxAutoRetriesNextServer: 0
   ReadTimeout: 4000
   ConnectTimeout: 3000
-
 tx-lcn:
   logger:
     enabled: true
     driver-class-name: com.mysql.jdbc.Driver
-    jdbc-url: jdbc:mysql://127.0.0.1:3306/tx-logger?characterEncoding=UTF-8&serverTimezone=UTC
+    jdbc-url: jdbc:mysql://localhost:3306/tx-logger?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
     username: root
     password: 666666
-  springcloud:
-    loadbalance:
-      enable: true
-  client:
-    manager-address: 127.0.0.1:8070
-  message:
-    netty:
-      wait-time: 10000
 logging:
   level:
     com:
-      codingapi: debug
+      codingapi:
+        txlcn: debug
