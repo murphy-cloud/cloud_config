@@ -20,7 +20,7 @@ eureka:
 #============MyBatis配置==============================
 mybatis:
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.gee.murphy.sys.entity
+  type-aliases-package: com.gee.murphy.common.entity.sys
 #============分页插件=======================
 pagehelper:
   helperDialect: mysql
@@ -33,6 +33,12 @@ ribbon:
   ReadTimeout: 4000
   ConnectTimeout: 3000
 tx-lcn:
+  client:
+    # manager服务地址(rpc端口),可填写多个负载
+    manager-address: 127.0.0.1:8070
+  springcloud:
+    loadbalance:
+      enabled: true
   logger:
     enabled: true
     driver-class-name: com.mysql.jdbc.Driver
