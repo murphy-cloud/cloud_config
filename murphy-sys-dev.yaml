@@ -5,11 +5,16 @@ spring:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.jdbc.Driver
     hikari:
-#      jdbc-url: jdbc:mysql://localhost:3306/murphy?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+      #      jdbc-url: jdbc:mysql://localhost:3306/murphy?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
       maximum-pool-size: 20
     url: jdbc:mysql://localhost:3306/murphy?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
     username: root
     password: 666666
+  #===========json配置================
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: non_empty
 server:
   port: 11000
 eureka:
