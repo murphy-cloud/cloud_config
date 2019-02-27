@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: murphy-auth-server
+  redis:
+    host: 127.0.0.1
+    database: 0
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 20
+    url: jdbc:mysql://localhost:3306/murphy?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    username: root
+    password: 666666
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+#============MyBatis配置==============================
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.gee.murphy.common.entity.sys
+server: 10001
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10000/eureka/
