@@ -59,8 +59,10 @@ logging:
 security:
   oauth2:
     resource:
+      jwt:
+        key-uri: http://localhost:10001/oauth/token_key
       #获取用户认证信息
-      user-info-uri: http://localhost:10001/users/current
+      #user-info-uri: http://localhost:10001/users/current
     #客户端配置
     client:
       #客户端ID
@@ -73,3 +75,4 @@ security:
       grant-type: password
       #作用域
       scope: read,write
+      user-authorization-uri: http://localhost:10001/oauth/authorize
