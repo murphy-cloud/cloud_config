@@ -55,12 +55,13 @@ logging:
     com:
       codingapi:
         txlcn: debug
+auth_server: http://localhost:10001
 #===========认证配置==================
 security:
   oauth2:
     resource:
       jwt:
-        key-uri: http://localhost:10001/oauth/token_key
+        key-uri: ${auth_server}/oauth/token_key
       #获取用户认证信息
       #user-info-uri: http://localhost:10001/users/current
     #客户端配置
@@ -70,9 +71,11 @@ security:
       #客户端验证码
       client-secret: 123456
       #获取token的地址
-      access-token-uri: http://localhost:10001/oauth/token
+      access-token-uri: ${auth_server}/oauth/token
       #认证类型
       grant-type: password
       #作用域
       scope: read,write
-      user-authorization-uri: http://localhost:10001/oauth/authorize
+      user-authorization-uri: ${auth_server}/oauth/authorize
+      
+
