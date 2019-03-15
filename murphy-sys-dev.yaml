@@ -67,7 +67,7 @@ security:
     #客户端配置
     client:
       #客户端ID
-      id: web_client
+      client_id: web_client
       #客户端验证码
       client-secret: 123456
       #获取token的地址
