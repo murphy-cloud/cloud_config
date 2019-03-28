@@ -15,6 +15,24 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
     default-property-inclusion: non_empty
+  redis:
+    database: 1
+    host: localhost
+    port: 6379
+    jedis:
+      pool:
+        #最大空闲连接数
+        max-idle: 8
+        #最小空闲连接数
+        min-idle: 0
+        #连接池最大连接数，负数表示无最大连接数
+        max-active: 8
+        #连接池最大阻塞等待时间，负数表示没有
+        max-wait: -1
+#    sentinel:
+#      nodes:
+#    sentinel:
+#      master:
 server:
   port: 11000
 eureka:
@@ -77,5 +95,5 @@ security:
       #作用域
       scope: read,write
       user-authorization-uri: ${auth_server}/oauth/authorize
-      
+
 
