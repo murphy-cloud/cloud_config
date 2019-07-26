@@ -41,7 +41,7 @@ security:
       user-authorization-uri: ${auth_server}/oauth/authorize
 mybatis:
   mapper-locations: classpath:mapping/*.xml
-  type-aliases-package: com.murphy.gee.common.entity.sys
+  type-aliases-package: com.murphy.gee.sys.entity
 #pagehelper分页插件
 pagehelper:
   helperDialect: mysql
