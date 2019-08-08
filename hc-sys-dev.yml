@@ -7,7 +7,7 @@ eureka:
 spring:
   redis:
     host: 127.0.0.1
-    database: 0
+    database: 1
     port: 6379
     lettuce:
       pool:
@@ -57,3 +57,10 @@ pagehelper:
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql
+logging:
+  level:
+    com:
+      murphy:
+        gee:
+          sys:
+            mapper: debug
