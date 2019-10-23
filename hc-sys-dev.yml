@@ -64,3 +64,4 @@ logging:
         gee:
           sys:
             mapper: debug
+defaultPassword: 666666
