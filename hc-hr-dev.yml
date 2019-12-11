@@ -1,0 +1,55 @@
+server:
+  port: 18400
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:18000/eureka/
+spring:
+  redis:
+    host: 127.0.0.1
+    database: 1
+    port: 6379
+    lettuce:
+      pool:
+        max-active: 8
+        min-idle: 0
+        max-idle: 8
+        max-wait: 10000ms
+      shutdown-timeout: 100ms
+  #    password:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 20
+    #      jdbc-url: jdbc:mysql://localhost:3306/murphy?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    url: jdbc:mysql://localhost:3306/murphy?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    username: root
+    password: 666666
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+auth_server: http://localhost:18200
+#===========认证配置==================
+security:
+  oauth2:
+    resource:
+      jwt:
+        key-uri: ${auth_server}/oauth/token_key
+      #获取用户认证信息
+      #user-info-uri: http://localhost:10001/users/current
+    #客户端配置
+    client:
+      #客户端ID
+      client_id: murphy
+      #客户端验证码
+      client-secret: 123456
+      #获取token的地址
+      access-token-uri: ${auth_server}/oauth/token
+      #认证类型
+      grant-type: password
+      #作用域
+      scope: read,write
+      user-authorization-uri: ${auth_server}/oauth/authorize
+defaultPassword: 666666
