@@ -14,10 +14,14 @@ spring:
         uri: lb://HC-AUTH
         predicates:
           - Path=/hc-auth/**
+        filters:
+          - StripPrefix=1
       - id: service-sys
         uri: lb://HC-SYS
         predicates:
           - Path=/hc-sys/**
+        filters:
+          - StripPrefix=1
 eureka:
   client:
     service-url:
