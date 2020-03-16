@@ -1,0 +1,20 @@
+server:
+  port: 18500
+spring:
+  application:
+    name: hc-getway
+  cloud:
+    gateway:
+#      routes:
+#        - id: getway-service
+#          uri: http://localhost:18200
+#          predicates:
+#            - Path=/hc-auth
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:18000/eureka/
