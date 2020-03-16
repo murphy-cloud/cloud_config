@@ -10,12 +10,12 @@ spring:
           enabled: false
           lower-case-service-id: true
       routes:
-      - id: lb://HC-AUTH
-        uri: http://localhost:18200
+      - id: service-auth
+        uri: lb://HC-AUTH
         predicates:
           - Path=/hc-auth
-      - id: lb://HC-SYS
-        uri: http://localhost:18300
+      - id: service-sys
+        uri: lb://HC-SYS
         predicates:
           - Path=/hc-sys
 eureka:
