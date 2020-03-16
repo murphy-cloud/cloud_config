@@ -13,11 +13,11 @@ spring:
       - id: service-auth
         uri: lb://HC-AUTH
         predicates:
-          - Path=/hc-auth
+          - Path=/hc-auth/**
       - id: service-sys
         uri: lb://HC-SYS
         predicates:
-          - Path=/hc-sys
+          - Path=/hc-sys/**
 eureka:
   client:
     service-url:
