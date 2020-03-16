@@ -9,11 +9,11 @@ spring:
         locator:
           enabled: false
           lower-case-service-id: true
-            routes:
-              - id: lb://HC-AUTH
-                uri: http://localhost:18200
-                predicates:
-                  - Path=/hc-auth
+      routes:
+      - id: lb://HC-AUTH
+        uri: http://localhost:18200
+        predicates:
+          - Path=/hc-auth
 eureka:
   client:
     service-url:
