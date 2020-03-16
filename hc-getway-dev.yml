@@ -5,15 +5,15 @@ spring:
     name: hc-getway
   cloud:
     gateway:
-#      routes:
-#        - id: getway-service
-#          uri: http://localhost:18200
-#          predicates:
-#            - Path=/hc-auth
       discovery:
         locator:
-          enabled: true
+          enabled: false
           lower-case-service-id: true
+            routes:
+              - id: lb://HC-AUTH
+                uri: http://localhost:18200
+                predicates:
+                  - Path=/hc-auth
 eureka:
   client:
     service-url:
